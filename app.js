@@ -42,7 +42,6 @@ app.get('/',(req, res) => {
     res.render('product_view',{
       results: results
     });
-    console.log(results);
   });
 });
 

@@ -19,18 +19,22 @@
         </tr>
       </thead>
       <tbody>
-         {{#each results}}
-        <tr>
-          <td>{{ title }}</td>
-          <td>{{ price }}</td>
-          <td>{{ release_date }}</td>
-          <td>{{ copies_sold }}</td>
-          <td>
-            <a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ game_id }}" data-product_name="{{ product_name }}" data-price="{{ price }}">Edit</a>
-            <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ game_id }}">Delete</a>
-          </td>
-        </tr>
+
+        {{#each results}}
+          <tr>
+            <td>{{ TITLE }}</td>
+            <td>{{ PRICE }}</td>
+            <td>{{ RELEASE_DATE }}</td>
+            <td>{{ COPIES_SOLD }}</td>
+
+            <td>
+              <a href="javascript:void(0);" class="btn btn-sm btn-info edit" data-id="{{ game_id }}" data-product_name="{{ title }}" data-price="{{ price }}">Edit</a>
+              <a href="javascript:void(0);" class="btn btn-sm btn-danger delete" data-id="{{ game_id }}">Delete</a>
+            </td>
+
+          </tr>
         {{/each}}
+
       </tbody>
     </table>
   </div>
@@ -48,11 +52,17 @@
              </div>
              <div class="modal-body">
                <div class="form-group">
-                   <input type="text" name="product_name" class="form-control" placeholder="Product Name" required>
+                   <input type="text" name="title" class="form-control" placeholder="Title" required>
                </div>
 
                <div class="form-group">
                    <input type="text" name="price" class="form-control" placeholder="Price" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="copies_sold" class="form-control" placeholder="Copies Sold" required>
+               </div>
+               <div class="form-group">
+                   <input type="text" name="release_date" class="form-control" placeholder="Release Date" required>
                </div>
              </div>
              <div class="modal-footer">
@@ -77,11 +87,19 @@
             </div>
             <div class="modal-body">
               <div class="form-group">
-                  <input type="text" name="product_name" class="form-control product_name" placeholder="Product Name" required>
+                  <input type="text" name="title" class="form-control title" placeholder="Title" required>
               </div>
 
               <div class="form-group">
                   <input type="text" name="price" class="form-control price" placeholder="Price" required>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="copies_sold" class="form-control copies_sold" placeholder="Copies Sold" required>
+              </div>
+
+              <div class="form-group">
+                  <input type="text" name="release_date" class="form-control release_date" placeholder="Release Date" required>
               </div>
             </div>
             <div class="modal-footer">
@@ -120,13 +138,13 @@
 <script src="/assets/js/bootstrap.js"></script>
 <script>
     $(document).ready(function(){
-            //showing data to edit modal      $('#mytable').on('click','.edit',function(){
-        console.log("hello")
-        var game_id = $(this).data('game_id');
-        var title = $(this).data('title');
-        var price = $(this).data('price');
-        var release_date = $(this).data('release_date');
-        var copies_sold = $(this).data('copies_sold');
+      //showing data to edit modal
+      $('#mytable').on('click','.edit',function(){
+        var game_id = $(this).data('GAME_ID');
+        var title = $(this).data('TITLE');
+        var price = $(this).data('PRICE');
+        var release_date = $(this).data('RELEASE_DATE');
+        var copies_sold = $(this).data('COPIES_SOLD');
         $('#EditModal').modal('show');
         $('.title').val(title);
         $('.price').val(price);
@@ -134,8 +152,8 @@
         $('.release_date').val(release_date);
         $('.copies_sold').val(copies_sold);
       });
-            //showing delete record modal
-            $('#mytable').on('click','.delete',function(){
+      //showing delete record modal
+      $('#mytable').on('click','.delete',function(){
         var game_id = $(this).data('game_id');
         $('#DeleteModal').modal('show');
         $('.game_id2').val(game_id);
