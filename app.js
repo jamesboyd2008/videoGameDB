@@ -74,7 +74,7 @@ app.post('/save',(req, res) => {
 
 //route for update data
 app.post('/update',(req, res) => {
-  let sql = "UPDATE RELEASED_GAME SET title='"+req.body.title+"', price='"+req.body.price+"', release_date='"+req.body.release_date+"', copies_sold='"+req.body.copies_sold+"' WHERE game_id="+req.body.game_id;
+  let sql = "UPDATE RELEASED_GAME SET title='"+req.body.title+"', price='"+req.body.price+"', release_date='"+req.body.release_date+"', copies_sold='"+req.body.copies_sold+"' WHERE game_id='"+req.body.game_id+"'";
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
     res.redirect('/');
