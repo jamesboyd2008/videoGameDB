@@ -9,3 +9,7 @@ To run the app locally:
 5. Run `RDS_HOSTNAME=127.0.0.1 RDS_USERNAME=root RDS_PASSWORD=[password] RDS_PORT=3306 RDS_DB_NAME=VIDEO_GAMES node app.js`
 That will provide necessary environmental variables to the nodejs process.
 6. Navigate to `localhost:8000` in your favorite web browser and have fun.
+
+A shoutout to M Fikri for this template.  More of da kine is available at
+http://mfikri.com/en/blog/nodejs-mysql-crud and
+https://github.com/mfikricom/
