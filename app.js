@@ -83,7 +83,7 @@ app.post('/update',(req, res) => {
 
 //route for delete data
 app.post('/delete',(req, res) => {
-  let sql = "DELETE FROM RELEASED_GAME WHERE game_id="+req.body.game_id+"";
+  let sql = "DELETE FROM RELEASED_GAME WHERE game_id='"+req.body.game_id+"'";
   let query = conn.query(sql, (err, results) => {
     if(err) throw err;
       res.redirect('/');
